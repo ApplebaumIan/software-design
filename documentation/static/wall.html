@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Office Wall Updates</title>
+    <style>
+        h1 {
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        h2{
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        p{
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+        li{
+            font-size: 1.2rem;
+        }
+        table {
+            margin-top: -5px;
+            padding-top: 0;
+        }
+
+    </style>
+</head>
+<body>
+<h1>
+    Ian's Office Hours
+</h1>
+
+<div id="announce-area" style="border: #0c0c0d; border-style: dashed; padding: 20px; margin: 10px; font-size: 1rem">
+    <div>
+        <h2 id="title"></h2>
+        <div id="announcement">
+        </div>
+    </div>
+</div>
+
+    <table>
+        <tr>
+            <p>
+                Scan the QR Code to Schedule an appointment.
+            </p>
+            <td><div>
+                <div>
+
+                    <div>
+                        <div>
+                            <div>
+                                    <br>
+                                <ul>
+                                    <li>Monday, 2:00-3:00 PM Online or in Person <b>SERC 325</b></li>
+                                    <li>Wednesday, 11:30-12:30 PM,and 2:00-3:30pm Online or in Person <b>SERC
+                                        325</b></li>
+                                    <li>Friday, 12:15-1:30 PM Online or in Person <b>SERC 325</b></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </td>
+            <td><img src="/img/office-qr.png" alt="QR code to https://calendly.com/ian-tyler-applebaum/office-hours" width="350px"/></td>
+
+        </tr>
+        <tfoot>
+        <td  style="text-align: center;vertical-align: middle;">
+            <div>
+                <img style="width:500px; left: 20%; position: absolute; margin-left: auto; margin-right: auto;" id="dp" src="img/Dont_Panic.png"></img>
+            </div>
+        </td>
+        </tfoot>
+
+        <!-- add more rows as needed -->
+    </table>
+
+
+</body>
+<footer>
+    <script>
+        // Find the element to be updated
+        var element = document.getElementById('myElementId');
+
+        // Define a function to update the element
+        function updateElement() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://courses.ianapplebaum.com/api/announcement');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    // Update the text content of the element with the cat fact
+                    if(data.announcement) {
+                        document.getElementById('title').textContent = data.title;
+                        document.getElementById('announcement').textContent = data.announcement;
+                        document.getElementById("announce-area").style.display = 'block'
+                        document.getElementById("dp").style.visibility = 'hidden';
+                    }else{
+                        document.getElementById("announce-area").style.display = 'none'
+                        document.getElementById("dp").style.visibility = 'visible'
+                    }
+                }
+                else {
+                    // console.error('Failed to fetch cat fact:', xhr.statusText);
+                }
+            };
+            xhr.onerror = function() {
+                // console.error('Failed to fetch cat fact:', xhr.statusText);
+            };
+            try { xhr.send() } catch (e) {/*do nothing*/}
+            // Call the function again after a delay (e.g., 1 second)
+            setTimeout(updateElement, 10000);
+        }
+
+        // Call the updateElement function to start the update loop
+        updateElement();
+
+    </script>
+</footer>
+</html>
