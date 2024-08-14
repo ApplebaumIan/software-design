@@ -33,7 +33,7 @@ const config = {
   tagline: 'Professor Applebaum',
   /*Unless you move this website to a seperate repo don't change url and baseurl.*/
   url: 'https://software-design.ianapplebaum.com/',
-  baseUrl: '/idk',
+  baseUrl: '/',
   trailingSlash: false,
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
