@@ -65,7 +65,6 @@ export function HomepageHeader() {
 
               {/*{docusaurusConfig.customFields.is_pdf ? <></> : <WatchLiveDemo/>}*/}
 
-
         </div>
       </div>
         {/*<BrowserOnly  fallback={<div>Loading...</div>} >*/}
@@ -75,7 +74,10 @@ export function HomepageHeader() {
         {/*        return <AnimatedBackground/>;*/}
         {/*    }}*/}
         {/*</BrowserOnly>*/}
-
+        <div className='wrap'>
+            <div className='top-plane'></div>
+            <div className='bottom-plane'></div>
+        </div>
     </header>
   );
 }
@@ -160,6 +162,7 @@ function WatchLiveDemo() {
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
+      <>
     <Layout
         title={`Syllabus`}
         description="Professor Applebaum's Capstone Course Syllabus.">
@@ -171,6 +174,6 @@ export default function Home() {
                 </MDXContent>
             </div>
         </main>
-    </Layout>
+    </Layout></>
   );
 }

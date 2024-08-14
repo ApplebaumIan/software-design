@@ -19,7 +19,7 @@ const main_template_jira_scripts = () => {
   }
 }
 const is_pdf = process.env.PDF; // helper env variable to ignore parts that shouldn't be a part of the PDF. Basically tell docusaurus whether its being rendered as a PDF or not.
-const course_number = 'CIS 4398';
+const course_number = 'CIS 3296';
 const semester = process.env.SEMESTER_YEAR;
 // You can change the title here. The default is the name of the repository.
 const title = ''+process.env.PROJECT_NAME.replaceAll('-',' ').split(' ').map((word) => {
@@ -32,8 +32,8 @@ const config = {
   title: title,
   tagline: 'Professor Applebaum',
   /*Unless you move this website to a seperate repo don't change url and baseurl.*/
-  url: 'https://capstone.ianapplebaum.com/',
-  baseUrl: '/',
+  url: 'https://software-design.ianapplebaum.com/',
+  baseUrl: '/idk',
   trailingSlash: false,
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -85,7 +85,7 @@ const config = {
         // },
 
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       }),
     ],
@@ -99,23 +99,29 @@ const config = {
             spec: 'static/openapi.yml.yaml',
             route: '/api/',
           },
-          {
-            id: 'using-single-yaml',
-            spec: 'https://courses.ianapplebaum.com/public/docs/openapi.yaml',
-            route: '/courses/api/',
-          },
+          // {
+          //   id: 'using-single-yaml',
+          //   spec: 'https://courses.ianapplebaum.com/public/docs/openapi.yaml',
+          //   route: '/courses/api/',
+          // },
         ],
         // Theme Options for modifying how redoc renders them
         theme: {
           // Change with your site colors
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       },
     ],
   ],
   themeConfig:
+
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
+      },
       navbar: {
         /*TODO: Change to your project's title*/
         title: title,
@@ -140,11 +146,6 @@ const config = {
           //   label: 'Lecture Slides',
           //   position: 'left',
           // },
-          {
-            to: '/showcase',
-            label: 'Capstone Showcase ⭐️',
-            position: 'right',
-          },
 
           {
             href: 'https://github.com/'+process.env.ORG_NAME+'/'+process.env.PROJECT_NAME,
@@ -214,18 +215,6 @@ const config = {
                 href: 'https://temple-cis-projects-in-cs.atlassian.net',
               },
               {
-                label: 'GitHub Org',
-                href: 'https://github.com/Capstone-Projects-2023-Spring',
-              },
-              {
-                label: 'Canvas Section 002',
-                href: 'https://templeu.instructure.com/courses/114625',
-              },
-              {
-                label: 'Canvas Section 704',
-                href: 'https://templeu.instructure.com/courses/124586',
-              },
-              {
                 label: 'Miro',
                 href: 'https://miro.com/',
               },
@@ -257,7 +246,7 @@ const config = {
   plugins: [
     [
       '@docusaurus/plugin-content-docs',
-      {
+    {
         id: 'tutorial',
         path: 'tutorial',
         routeBasePath: 'tutorial',
@@ -272,6 +261,7 @@ const config = {
       },
     ],
     'plugin-image-zoom',
+    'docusaurus-plugin-sass'
 
 
   ],
