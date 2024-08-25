@@ -133,6 +133,7 @@ export default function Syllabus(props) {
         let id = event_name.toLowerCase()
         id = id.replaceAll(" ","")
         id = id.replaceAll("/","")
+        id = id.replaceAll(",","")
         id = removeEmoji(id)
         return id
     }
@@ -153,64 +154,66 @@ export default function Syllabus(props) {
     const printTask = function (taskId) {
         alert('taskId: ' + taskId);
     };
-    function formatEvent(s,event,id) {
+    function formatEvent(s, event, id) {
         let event_date = new Date(event.event_date);
         let today = new Date();
-        let status = ``
-        if(event.class_type !== "Sprint") {
+        let status = ``;
+
+        if (event.class_type !== "Sprint") {
             if (event_date.getFullYear() === today.getFullYear() &&
                 event_date.getMonth() === today.getMonth() &&
                 event_date.getDate() === today.getDate()) {
-                status = `active`
-            }
-            else if (today.getTime() > event_date.getTime()) {
-                status = `done`
+                status = `active`;
+            } else if (today.getTime() > event_date.getTime()) {
+                status = `done`;
             }
         }
-
 
         let regex = /\bDemo\b/;
 
-        let classType = (event.class_type !== "N/A" && !regex.test(event.event_name)) ? event.class_type : "";
-        let isMilestoneDemo = `${regex.test(event.event_name) ? ` crit, milestone,` : ``}`;
-        let isAssignment = `${event.class_type === "Assignment" ? ` milestone,` : ``}`;
-        let lab = `${event.event_name} ${classType}:  ${isMilestoneDemo} ${isAssignment} ${status} ${id} , ${event.event_date},  ${isAssignment != `` ? `1h` : `1d`}`;
-        let lecture = `${event.event_name} ${classType}:  ${isMilestoneDemo} ${isAssignment} ${status} ${id} , ${event.event_date},  1d`;
-        let assignment = `${event.event_name} ${classType}:  ${isMilestoneDemo} ${isAssignment} ${status} ${id} , ${event.event_date},  12h`;
+        // Sanitize the event name by removing commas and replacing them with a hyphen
+        let sanitizedEventName = event.event_name.replace(/,/g, '')
+
+        let classType = (event.class_type !== "N/A" && !regex.test(sanitizedEventName)) ? event.class_type : "";
+        let isMilestoneDemo = `${regex.test(sanitizedEventName) ? `crit-milestone` : ``}`;
+        let isAssignment = `${event.class_type === "Assignment" ? `milestone` : ``}`;
+
+        let eventBase = `${sanitizedEventName} ${classType}: ${isMilestoneDemo} ${isAssignment} ${status} ${id}, ${event.event_date}`;
+
+        let lab = `${eventBase}, ${isAssignment !== `` ? `1h` : `1d`}`;
+        let lecture = `${eventBase}, 1d`;
+        let assignment = `${eventBase}, 12h`;
+
         let sprint = props.oneWeekSprints ?
-            `${event.event_name}: ${status}, ${event.event_date}, 1w`:
-            `${event.event_name}: ${status}, ${event.event_date}, 2w`;
-        let break_sprint = `${event.event_name}: ${status}, ${event.event_date}, 1w`;
-        let three_week_sprint = `${event.event_name}: ${status}, ${event.event_date}, 16d`;
-        let sbreak = `${event.event_name}: done, ${event.event_date}, 1d`;
-        let week = weeksBetween(s.start_date, event.event_date);
-        var phaseStr = phase(week);
-        var gantt_event = ""
-        switch (event.class_type){
+            `${eventBase}, 1w` :
+            `${eventBase}, 2w`;
+
+        let break_sprint = `${eventBase}, 1w`;
+        let sbreak = `${eventBase}, 1d`;
+
+        let gantt_event = "";
+
+        switch (event.class_type) {
             case "Lab":
-                gantt_event = lab
-                    // + `\nclick  ${id} href "https://mermaidjs.github.io/"`
-                break
+                gantt_event = lab;
+                break;
             case "Lecture":
-                gantt_event = lecture
-                break
+                gantt_event = lecture;
+                break;
             case "Sprint":
-                gantt_event = (event.event_name === "Sprint 0" || event.event_name === "Sprint 6") ? break_sprint : sprint
-                break
+                gantt_event = (sanitizedEventName === "Sprint-0" || sanitizedEventName === "Sprint-6") ? break_sprint : sprint;
+                break;
             case "Break!":
-                gantt_event = sbreak
-                break
-            // case "Assignment":
-            //     gantt_event = assignment
-            //     break
+                gantt_event = sbreak;
+                break;
             default:
-                gantt_event = lab
-                break
+                gantt_event = lab;
+                break;
         }
-        return `section ${phaseStr} 
-         ${gantt_event}
-        `;
-        // return `${event.event_name}:${event.event_date}, 1d \n`;
+
+        return `
+        ${gantt_event}
+    `;
     }
     return <>
         <div className={"markdown"}>
