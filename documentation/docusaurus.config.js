@@ -76,6 +76,7 @@ const config = {
           // remarkPlugins: [require('mdx-mermaid')],
 
         },
+
         // tutorials: {
         //   sidebarPath: require.resolve('./tutorialSidebars.js'),
         //   // Please change this to your repo.
@@ -250,6 +251,15 @@ const config = {
         id: 'tutorial',
         path: 'tutorial',
         routeBasePath: 'tutorial',
+        sidebarPath: require.resolve('./sidebars.js'),
+        // ... other options
+      },
+    ],[
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'design-patterns',
+        path: 'design-patterns',
+        routeBasePath: 'design-patterns',
         sidebarPath: require.resolve('./sidebars.js'),
         // ... other options
       },
