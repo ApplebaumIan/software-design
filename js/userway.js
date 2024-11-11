@@ -1,1 +1,1 @@
-!function(t){var e=t.createElement("script");e.setAttribute("data-account","JfBr0HQgj5"),e.setAttribute("src","https://cdn.userway.org/widget.js"),(t.body||t.head).appendChild(e)}(document);
+(function(d){var s = d.createElement("script");s.setAttribute("data-account", "JfBr0HQgj5");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)

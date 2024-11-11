@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktu_cis_4398_docs_template=self.webpackChunktu_cis_4398_docs_template||[]).push([[4344],{56904:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"design-patterns"}')}}]);
