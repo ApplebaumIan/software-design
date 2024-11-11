@@ -118,6 +118,11 @@ const config = {
 
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      docs:{
+        sidebar: {
+          hideable: true,
+        },
+      },
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: true,
@@ -136,6 +141,11 @@ const config = {
             docId: 'intro',
             position: 'left',
             label: 'Documentation',
+          },{
+            to: '/design-patterns/intro',
+            label: 'Design Patterns',
+            position: 'left',
+            activeBaseRegex: `/design-patterns/`,
           },{
             to: '/tutorial/Intro',
             label: 'Docusaurus Tutorial',

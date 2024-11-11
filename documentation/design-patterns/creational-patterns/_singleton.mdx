@@ -1,0 +1,43 @@
+---
+title: Singleton
+sidebar_position: 1
+---
+
+# Singleton Pattern in JavaScript
+
+In this tutorial, we’ll go step-by-step to build the **Singleton Pattern** in JavaScript. The Singleton pattern ensures that a class has only one instance and provides a global point of access to it.
+
+Let's walk through each step and build it together.
+
+## Step 1: Why Singleton?
+
+Before we dive into code, let’s understand why we might need a Singleton. Imagine we’re building a **logger utility** or a **database connection** in an app. We don’t want multiple instances of a logger or database connection floating around because it can lead to issues like inconsistent data or excessive resource usage.
+
+With the Singleton pattern, we can make sure that only one instance of a class is created, and we can access it globally.
+
+---
+
+## Step 2: Start the Singleton Class
+
+We’ll start by creating the basic structure of our `Singleton` class. This class will eventually be designed to ensure it only creates one instance.
+
+Add the following code:
+```jsx live
+class Singleton {
+  constructor() {
+    if (Singleton.instance) {
+      return Singleton.instance;
+    }
+
+    this.data = "This is the only instance!";
+    Singleton.instance = this;
+  }
+
+  getData() {
+    return this.data;
+  }
+}
+
+const instance1 = new Singleton();
+<div>{instance1.getData()}</div>
+```
