@@ -1,0 +1,83 @@
+---
+title: Singleton Pattern
+sidebar_position: 1
+---
+import Figure from "../../src/components/Figure";
+
+# Singleton Pattern
+
+> **Singleton** is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
+> [~ Refactoring Guru](https://refactoring.guru/design-patterns/singleton)
+
+<Figure caption={"Singleton UML Class Diagram"}>
+
+    ```mermaid
+    classDiagram
+    class Singleton {
+        - instance: Singleton$
+        - Singleton()
+        + getInstance() Singleton
+    }
+    Singleton --> Singleton
+    Singleton <-- Client
+    note for Singleton "if (instance == null) {<br/>// Note: if you're creating an app with<br/>// multithreading support, you should<br/>// place a thread lock here.<br/><div/>instance = new Singleton<br/><div/>return instance<br/>}"
+    ```
+
+</Figure>
+
+The Singleton design pattern ensures a class has only one instance and provides a global access point to that instance. It is useful for controlling access to shared resources and simplifying code. However, it can mask bad design and requires special treatment in multithreaded environments.
+
+## Slides
+
+<Figure caption={"Singleton Pattern"} subcaption={
+    <a href={"/slides-html/Singleton/#0"} target={"_blank"} rel="noopener noreferrer">full screen click here</a>
+}>
+    <iframe height={"500"} width={"100%"} src="/slides-html/Singleton/#0" title="W3Schools Free Online Web Tutorials"></iframe>
+</Figure>
+
+---
+
+## Step by Step Implementation
+
+In this tutorial, we’ll build a **Singleton Pattern** in JavaScript to fetch data from a real API ([https://courses.ianapplebaum.com/api](https://courses.ianapplebaum.com/public/docs/)). The Singleton Pattern ensures only one instance of `ApiService` is created, centralizing access to authenticated API calls.
+
+
+<table><thead>
+<tr>
+    <td><div className={""}>
+
+        <iframe height={"651px"} width={"294px"} src="/slides-html/Singleton-Implementation/#0" title="W3Schools Free Online Web Tutorials"></iframe>
+    </div></td>
+    <td>
+
+
+
+        ```jsx live
+    function SingletonDemo() {
+            class ApiService {
+                // Private static field for storing the singleton instance
+                static #instance;
+
+                async fetchUser() {
+                return "Fetching user data...";
+            }
+    }
+
+        const [data, setData] = useState(null);
+
+        // Simulate fetching data
+        useEffect(() => {
+            const apiService = new ApiService();
+            apiService.fetchUser().then(result => setData(result));
+    }, []);
+
+    return <div>{data}</div>;
+}
+
+    ```
+
+    </td>
+</tr></thead>
+</table>
+
+
