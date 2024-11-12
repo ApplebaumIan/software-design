@@ -1,0 +1,143 @@
+---
+title: Adapter Pattern
+sidebar_position: 1
+---
+import Figure from "../../src/components/Figure";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+# Adapter Pattern
+
+> **Adapter** is a structural design pattern that allows objects with incompatible interfaces to collaborate.<br/>
+> [~ Refactoring Guru](https://refactoring.guru/design-patterns/adapter)
+
+<Tabs>
+    <TabItem value="object" label="Object Adapter" default>
+        <Figure caption={"Object Adapter UML Class Diagram"} subcaption={<>Uses object composition to bridge incompatible interfaces between client and service classes. It allows for flexible integration and easy updates to service classes without affecting client code. The adapter implements the interface of one object and wraps the other one. <b>It can be implemented in all popular programming languages.</b></>}>
+
+            ```mermaid
+            classDiagram
+            class ClientInterface{
+            << interface >>
+            + method(data)
+        }
+
+            ClientInterface <-- Client
+            ClientInterface <|.. Adapter
+            Service <-- Adapter
+
+            class Adapter{
+            - adaptee: Service
+            + method(data)
+        }
+
+            class Service {
+            + serviceMethod(specialData)
+        }
+
+            note for Adapter "specialData = convertToServiceFormat(data)
+            return adaptee.serviceMethod(specialData)"
+            ```
+
+        </Figure>
+    </TabItem>
+    <TabItem value="class" label="Class Adapter">
+        <Figure caption={"Class Adapter UML Class Diagram"} subcaption={"The adapter inherits interfaces from both objects simultaneously. This approach is possible only in programming languages supporting multiple inheritance, like C++."}>
+
+            ```mermaid
+            classDiagram
+            class ExistingClass{
+            + method(data)
+        }
+
+            ExistingClass <-- Client
+            Service <|-- Adapter
+            ExistingClass <|-- Adapter
+
+            class Adapter{
+            + method(data)
+        }
+
+            class Service {
+            + serviceMethod(specialData)
+        }
+
+            note for Adapter "specialData = convertToServiceFormat(data)
+            return serviceMethod(specialData)"
+            ```
+
+        </Figure>
+    </TabItem>
+</Tabs>
+
+
+
+The Adapter design pattern allows incompatible objects to collaborate by creating a translator class that converts the interface of one object to the format expected by another. This pattern is useful when integrating legacy or third-party code with existing applications. It follows the Single Responsibility and Open/Closed principles, but increases code complexity.
+
+## Slides
+
+    <Figure caption={"Adapter Pattern"} subcaption={
+        <a href={"/slides-html/Adapter/#0"} target={"_blank"} rel="noopener noreferrer">full screen click here</a>
+    }>
+        <iframe height={"500"} width={"100%"} src="/slides-html/Adapter/#0" title="W3Schools Free Online Web Tutorials"></iframe>
+    </Figure>
+
+    ---
+
+## Step by Step Implementation
+
+In this tutorial, we’ll implement the **Adapter Pattern** to convert XML data from a service into JSON format for a client that only accepts JSON. We’ll use the object adapter method to wrap the XML service and translate its output to JSON.
+
+
+<table><thead>
+<tr>
+    <td><div className={""}>
+
+        <iframe height={"651px"} width={"294px"} src="/slides-html/Adapter-Implementation/#0" title="W3Schools Free Online Web Tutorials"></iframe>
+    </div></td>
+    <td>
+
+
+
+        ```jsx live
+        function AdapterDemo() {
+        // XMLService provides data in XML format
+        class XMLService {
+            getDataInXML() {
+                return `<data>
+                <item>
+                  <id>1</id>
+                  <name>Item 1</name>
+                </item>
+                <item>
+                  <id>2</id>
+                  <name>Item 2</name>
+                </item>
+              </data>`;
+            }
+        }
+
+        // JSONClient expects data in JSON format
+        class JSONClient {
+                displayData(jsonData) {
+                return JSON.stringify(jsonData, null, 2);
+            }
+    }
+
+        const xmlService = new XMLService();
+        const jsonClient = new JSONClient();
+        return (
+        <div>
+            <h4>XML Service Data (Unusable by JSONClient):</h4>
+            <pre>{xmlService.getDataInXML()}</pre>
+        </div>
+        );
+    }
+```
+
+        </td>
+    </tr></thead>
+    </table>
+
+
