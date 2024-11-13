@@ -76,6 +76,7 @@ const config = {
           // remarkPlugins: [require('mdx-mermaid')],
 
         },
+
         // tutorials: {
         //   sidebarPath: require.resolve('./tutorialSidebars.js'),
         //   // Please change this to your repo.
@@ -117,6 +118,11 @@ const config = {
 
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      docs:{
+        sidebar: {
+          hideable: true,
+        },
+      },
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: true,
@@ -135,6 +141,11 @@ const config = {
             docId: 'intro',
             position: 'left',
             label: 'Documentation',
+          },{
+            to: '/design-patterns/intro',
+            label: 'Design Patterns',
+            position: 'left',
+            activeBaseRegex: `/design-patterns/`,
           },{
             to: '/tutorial/Intro',
             label: 'Docusaurus Tutorial',
@@ -250,6 +261,15 @@ const config = {
         id: 'tutorial',
         path: 'tutorial',
         routeBasePath: 'tutorial',
+        sidebarPath: require.resolve('./sidebars.js'),
+        // ... other options
+      },
+    ],[
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'design-patterns',
+        path: 'design-patterns',
+        routeBasePath: 'design-patterns',
         sidebarPath: require.resolve('./sidebars.js'),
         // ... other options
       },

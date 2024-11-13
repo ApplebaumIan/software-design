@@ -255,3 +255,31 @@ $nanoVelocity: 10s;
     perspective: $visualDistortionZapper - 150;
   }
 }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+#__docusaurus_skipToContent_fallback > div > div > main > div > div > div.col.docItemCol_VOVn > div > article > div.theme-doc-markdown.markdown > table > thead > tr > td:nth-child(1) > div {
+  //resize: horizontal;
+  //overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  //display:block;
+}
+td {
+
+}
+#__docusaurus_skipToContent_fallback > div > div > main > div > div > div.col.docItemCol_VOVn > div > article > div.theme-doc-markdown.markdown > table > thead > tr > td:nth-child(1){
+  padding: 0;
+  margin: 0;
+  width:294px;
+  //height: 651px;
+}
+//td div {
+//  border: 0;
+//  width: auto;
+//  height: auto;
+//  min-height: 20px;
+//  min-width: 20px;
+//}
