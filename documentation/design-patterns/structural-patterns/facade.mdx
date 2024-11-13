@@ -1,0 +1,114 @@
+import Figure from "../../src/components/Figure";
+
+# Façade Pattern
+
+> **Façade** is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes.
+>
+> [~ Refactoring Guru](https://refactoring.guru/design-patterns/facade)
+
+<Figure caption={"Façade Pattern UML Class Diagram"}>
+
+    ```mermaid
+    classDiagram
+    class Facade {
+    +operation()
+}
+
+    class SubsystemA {
+    +operationA()
+}
+
+    class SubsystemB {
+    +operationB()
+}
+
+    class SubsystemC {
+    +operationC()
+}
+
+    Facade --> SubsystemA : uses
+    Facade --> SubsystemB : uses
+    Facade --> SubsystemC : uses
+    ```
+
+</Figure>
+
+The Facade design pattern simplifies complex subsystems by providing a simplified interface. It allows clients to interact with the subsystem through a single facade class, isolating them from its internal details. Facades can be used to structure subsystems into layers and reduce coupling between multiple subsystems.
+
+## Slides
+
+<Figure caption={"Factory Pattern"} subcaption={
+    <a href={"/slides-html/Facade/#0"} target={"_blank"} rel="noopener noreferrer">full screen click here</a>
+}>
+    <iframe height={"500"} width={"100%"} src="/slides-html/Facade/#0" title="W3Schools Free Online Web Tutorials"></iframe>
+</Figure>
+
+---
+
+## Step by Step Implementation
+
+In this tutorial, we’ll implement the **Facade Pattern** to simplify interaction with a complex video processing system. The facade class will provide an easy interface for the client to convert videos, hiding the details of the subsystem’s multiple classes.
+
+
+
+<table><thead>
+<tr>
+    <td><div className={""}>
+
+        <iframe height={"651px"} width={"294px"} src="/slides-html/Facade-Implementation/#0" title="W3Schools Free Online Web Tutorials"></iframe>
+    </div></td>
+    <td>
+
+
+
+```jsx live
+function FacadeDemo() {
+    class VideoFile {
+        constructor(filename) {
+            this.filename = filename;
+            this.format = filename.split(".").pop();
+        }
+    }
+
+    class AudioMixer {
+        fix(audioStream) {
+            return "Audio fixed";
+        }
+    }
+
+    class BitrateReader {
+        static read(filename, codec) {
+            return "Reading file at given bitrate";
+        }
+        static convert(buffer, codec) {
+            return "Converting file bitrate";
+        }
+    }
+
+    class CodecFactory {
+        static extract(file) {
+            return file.format === "mp4" ? new MPEG4CompressionCodec() : new OggCompressionCodec();
+        }
+    }
+
+    class OggCompressionCodec {
+        constructor() {
+            this.type = "ogg";
+        }
+    }
+
+    class MPEG4CompressionCodec {
+        constructor() {
+            this.type = "mp4";
+        }
+    }
+
+    return <div>Subsystem classes defined.</div>;
+}
+```
+
+    </td>
+</tr></thead>
+</table>
+
+
