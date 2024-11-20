@@ -1,0 +1,105 @@
+import Figure from "../../src/components/Figure";
+
+# Strategy Pattern
+
+> **Strategy** is a behavioral design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
+>
+> [~ Refactoring Guru](https://refactoring.guru/design-patterns/strategy)
+
+<Figure caption={"Strategy Pattern UML Class Diagram"}>
+
+    ```mermaid
+    classDiagram
+    direction RL
+    class Context {
+    - strategy
+    + setStrategy(strategy)
+    + doSomething()
+}
+    note for Context "strategy.execute()"
+    Context <-- Client
+    note for Client "str = new SomeStrategy()
+    context.setStrategy(str)
+    context.doSomething()
+
+    // … More stuff happens…
+
+    other = new OtherStrategy()
+    context.setStrategy(other)
+    context.doSomething()"
+
+    Context o--> Strategy
+
+    class Strategy {
+    <<interface>>
+    +execute(data)
+}
+
+    Strategy <|.. ConcreteStrategies
+    ConcreteStrategies <.. Client
+    ```
+
+</Figure>
+
+The Strategy design pattern allows for the creation of a family of algorithms, each encapsulated in a separate class, making them interchangeable. This pattern is useful when a class has multiple ways of performing a task, as it allows for the extraction of these algorithms into separate classes, reducing code bloat and improving maintainability. The context class delegates work to a linked strategy object, abstracting away the specific implementation details.
+
+The Strategy pattern allows for the interchangeable use of different algorithms within an object at runtime. It enables the isolation of algorithm implementation details from the code that uses them. The pattern is useful when there are multiple similar classes that differ only in their execution behavior.
+
+## Slides
+
+<Figure caption={"Strategy Pattern"} subcaption={
+    <a href={"/slides-html/Strategy-Pattern/#0"} target={"_blank"} rel="noopener noreferrer">full screen click here</a>
+}>
+    <iframe height={"500"} width={"100%"} src="/slides-html/Strategy-Pattern/#0" title="W3Schools Free Online Web Tutorials"></iframe>
+</Figure>
+
+---
+
+## Step by Step Implementation
+
+Let’s use the Strategy Pattern to create a system that calculates discounts in a shopping cart. Different discount algorithms (e.g., percentage discount, fixed amount discount, or no discount) will act as interchangeable strategies. The steps follow your instructions.
+
+
+<table><thead>
+<tr>
+    <td><div className={""}>
+
+        <iframe height={"651px"} width={"294px"} src="/slides-html/Strategy-Pattern-Implementation/#0" title="W3Schools Free Online Web Tutorials"></iframe>
+    </div></td>
+    <td>
+
+
+
+```jsx live
+function StrategyDemo() {
+    class ShoppingCart {
+        constructor() {
+            this.totalAmount = 0;
+            this.discountAlgorithm = null; // Placeholder for strategy
+        }
+
+        setDiscountAlgorithm(discountAlgorithm) {
+            this.discountAlgorithm = discountAlgorithm;
+        }
+
+        calculateTotal() {
+            if (!this.discountAlgorithm) {
+                throw new Error("No discount algorithm set!");
+            }
+            return this.discountAlgorithm.calculate(this.totalAmount);
+        }
+
+        addItem(price) {
+            this.totalAmount += price;
+        }
+    }
+
+    return <div>Step 1: Context class ShoppingCart defined with discount algorithm placeholder.</div>;
+}
+```
+
+    </td>
+</tr></thead>
+</table>
+
+
