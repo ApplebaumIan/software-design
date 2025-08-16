@@ -44,11 +44,11 @@ export function HomepageHeader() {
                           to="#office-hours-professor-applebaum">
                           Student Office Hours ️👨‍🏫
                       </Link>
-                      <Link
-                          className="button button--secondary button--lg margin--md"
-                          to="#class-discord">
-                          Class Discord Server 💬
-                      </Link>
+                      {/*<Link*/}
+                      {/*    className="button button--secondary button--lg margin--md"*/}
+                      {/*    to="#class-discord">*/}
+                      {/*    Class Discord Server 💬*/}
+                      {/*</Link>*/}
                       <Link
                           className="button button--secondary button--lg margin--md"
                           to="#course-schedule">
