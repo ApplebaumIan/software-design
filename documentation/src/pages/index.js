@@ -44,7 +44,7 @@ export function HomepageHeader() {
                       {/* TODO: Change me to your project's tutorial*/ }
                       <Link
                           className="button button--secondary button--lg margin--md"
-                          to="#office-hours-professor-applebaum">
+                          to="#office-hours">
                           Student Office Hours ️👨‍🏫
                       </Link>
                       {/*<Link*/}
