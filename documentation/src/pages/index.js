@@ -16,6 +16,9 @@ import TabItem from '@theme/TabItem';
 import YouTubeVideoDescription from "../components/YouTubeVideoDescription";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import docusaurusConfig from "../../.docusaurus/docusaurus.config.mjs";
+import Instructor from "../components/Instructor/Instructor";
+import TeachingAssistants from "../components/TeachingAssistants";
+import OfficeHours from "../components/OfficeHours/OfficeHours";
 
 function isTimeBetween(startDate, endDate) {
     var currentDate = new Date();
@@ -168,8 +171,10 @@ export default function Home() {
         description="Professor Applebaum's Capstone Course Syllabus.">
         <HomepageHeader/>
         <main>
-            <div style={{zIndex:100000}}>
+            <div style={{zIndex:100000, margin:"0 auto", marginTop:"25px", maxWidth:"1080px"}}>
                 <MDXContent>
+                    <Instructor/>
+                    <OfficeHours/>
                     <SyllabusPage/>
                 </MDXContent>
             </div>
