@@ -49,9 +49,8 @@ export default function Instructor() {
 
                 {/* Third Column */}
                 <div className="col col--4">
-                    <Figure caption={"Class Moto:"} subcaption={"Design is not just about how something looks."}>
-                        <img style={{width: "100%", height: "auto"}} src="https://media1.tenor.com/m/v7Z6_aeZ1ocAAAAC/patrick-star-idk.gif" />
-                    </Figure>
+                    <Figure caption={"Class Motto:"} subcaption={"Design is not just about how something looks."}>
+<img style={{width: "100%", height: "auto"}} src="https://media1.tenor.com/m/v7Z6_aeZ1ocAAAAC/patrick-star-idk.gif" /></Figure>
                 </div>
         </div>
     );
