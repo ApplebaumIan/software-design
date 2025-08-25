@@ -7,7 +7,6 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import ProjectReadme from "../components/ReademeMD";
 import styles from './index.module.css';
 //import Syllabus from '../components/Syllabus';
-import SyllabusPage from './_syllabus-page.mdx'
 import MDXContent from '@theme/MDXContent';
 import Figure from "../components/Figure";
 import DontPanic from "../../static/img/dont-panic.svg"
@@ -41,26 +40,20 @@ export function HomepageHeader() {
                   </h1>
                   <p className="hero__subtitle">{siteConfig.customFields.semester} {siteConfig.tagline}</p>
                   <div className={"col"}>
-                      {/* TODO: Change me to your project's tutorial*/ }
                       <Link
                           className="button button--secondary button--lg margin--md"
-                          to="#office-hours-professor-applebaum">
+                          to="#office-hours">
                           Student Office Hours ️👨‍🏫
                       </Link>
-                      {/*<Link*/}
-                      {/*    className="button button--secondary button--lg margin--md"*/}
-                      {/*    to="#class-discord">*/}
-                      {/*    Class Discord Server 💬*/}
-                      {/*</Link>*/}
                       <Link
                           className="button button--secondary button--lg margin--md"
-                          to="#course-schedule">
-                          Course Schedule 📆
+                          to="/syllabus/course-overview">
+                          Course Syllabus 📋
                       </Link>
                       <Link
                           className="button button--secondary button--lg margin--md"
-                          to="/tutorial/intro">
-                          Docusaurus Tutorial 🦖
+                          to="/syllabus/schedule">
+                          Course Schedule 📆
                       </Link>
                   </div>
 
@@ -175,7 +168,15 @@ export default function Home() {
                 <MDXContent>
                     <Instructor/>
                     <OfficeHours/>
-                    <SyllabusPage/>
+
+                    <div style={{padding: '2rem'}}>
+                        <nav className="pagination-nav docusaurus-mt-lg" aria-label="Docs pages" style={{justifyContent: 'center', margin: '2rem 0'}}>
+                            <Link className="pagination-nav__link pagination-nav__link--next" to="/syllabus/course-overview">
+                                <div className="pagination-nav__label">Continue Reading</div>
+                                <div className="pagination-nav__sublabel">Course Overview</div>
+                            </Link>
+                        </nav>
+                    </div>
                 </MDXContent>
             </div>
         </main>
