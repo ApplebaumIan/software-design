@@ -284,6 +284,13 @@ const config = {
       },
     ],
     [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-2Z6N80YCD7',
+        anonymizeIP: true,
+      },
+    ],
+    [
       "docusaurus2-dotenv-2",
       {
         systemvars: true,
