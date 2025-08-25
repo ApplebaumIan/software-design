@@ -167,7 +167,6 @@ export default function Home() {
             <div style={{zIndex:100000, margin:"0 auto", marginTop:"25px", maxWidth:"1080px"}}>
                 <MDXContent>
                     <Instructor/>
-                    <OfficeHours/>
 
                     <div style={{padding: '2rem'}}>
                         <nav className="pagination-nav docusaurus-mt-lg" aria-label="Docs pages" style={{justifyContent: 'center', margin: '2rem 0'}}>
