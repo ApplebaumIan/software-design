@@ -14,89 +14,19 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import docusaurusConfig from "../../.docusaurus/docusaurus.config.mjs";
 
-<div id={"mobile-toc"} style={{display:"flex", justifyContent:"center", alignContent:"center"}}>
-<details style={{width:"75%"}}>
-<summary>
-<div style={{textAlign:"center"}}>
+---
 
-**Table of Contents**
+<details style={{width:"75%", margin:"32px auto 0 auto"}}><summary style={{textAlign:"center"}}>
 
-</div>
+## Table of Contents
+
 </summary>
-<left>
+
 <TOCInline toc={toc}/>
-</left>
 
 </details>
-</div>
 
-<div className={"container"} >
-<div className={"row"}>
-<div className={"syllabus-content col"}>
-
-
-<div  className={"container"}>
-<div className={"row"}>
-<div className={"col col--4"}>
-
-
-# Instructor
-
-<img id={"professor-applebaum"} className={"masked"} src={"https://s.gravatar.com/avatar/d7050d71af151b8db6f046e33e9e8e2e?s=200"} alt={"picture of Professor Ian Tyler Applebaum."}/>
-
-Professor Ian Tyler Applebaum
-Email:
-ian.tyler@temple.edu
-Discord:
-Applebaumian#2888
-Office: SERC 325
-
-</div>
-
-<div className={"col col--8"}>
-
-## Sections
-- Section 005
-    - Lecture Mondays and Wednesday 11:00 am - 12:20 am Room Tuttleman Learning Center 302
-    - Lab Friday 9:00 am - 10:50 am Room Biology - Life Science 137
-
-
-## Teaching and Lab Assistants
-
-- Mohammad Siahkamari: mohammad.siahkamari@temple.edu
-
-</div>
-</div>
-
-</div>
-
-## Office Hours 
-
-### Professor Applebaum
-
-<details>
-<summary>
-Office hours with Prof. Applebaum can be arranged by appointment using Calendly and will be conducted via Discord or Zoom. Office hours are available at the following times:
-
-- Monday, 3:30-5:00 PM Online or in Person **SERC 325**
-
-- Wednesday, 1:00-2:00 PM Online or in Person **SERC 325**
-
-[//]: # (- Friday, 12:15-1:30 PM Online or in Person **SERC 325**)
-
-**To schedule an appointment with Prof. Applebaum, click here!**
-
-
-</summary>
-
-If the scheduling widget doesn't appear use the following Calendly link: https://calendly.com/ian-tyler-applebaum/office-hours
-
-<>
-{docusaurusConfig.customFields.is_pdf ? <></> : <InlineWidget url="https://calendly.com/ian-tyler-applebaum/office-hours" />}
-</>
-
-
-</details>
+<br/>
 
 ### TA 
 
@@ -218,7 +148,7 @@ a team of 5 - 7 students.
 ### Course Schedule
 
 
-<Syllabus courseid={7} daysOff={` 2024-09-02 2024-11-25 2024-11-26 2024-11-27 2024-11-28 2024-11-29 2024-11-30 2024-12-01 `}/>
+<Syllabus courseid={12} daysOff={` 2025-09-02 2025-11-25 2025-11-26 2025-11-27 2025-11-28 2025-11-29 2025-11-30 2025-12-01 `}/>
 
 ### Course Materials
 
@@ -271,37 +201,6 @@ their Internet service and leased Internet equipment until the program's funding
 
 
 
-#### Class Discord
-
-import Discord from "../../static/img/discord_logo.svg"
-
-<Discord
-/>
-
-
-
-
-<div className={"row"}>
-<div className={"col col--5"}>
-
-In this class, Discord will be the host for team communication as well as communication with your instructors and peers.
-You are free to conduct team meetings, have discussions about your projects, get advice or talk with your instructors using this platform. In addition, you may talk about your projects and assignments with other students in all the sections of the CIS 3296 Software Design course.
-
-:::important Change your nickname!
-Please make sure that you change your nickname to your full name!
-:::
-
-<Figure src={"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://discord.gg/WaNd5scPpC"} caption={"Scan QR Code above to join Discord Server"} />
-
-
-
-</div>
-
-<iframe src="https://discord.com/widget?id=1277695415680241768&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-
-</div>
-
-
 
 ### Project Management Process
 
@@ -331,24 +230,13 @@ These documents will be continuously revised over the course of the semester in 
 
 ### Writing-Intensive Course
 
-<div className={"container"} >
-<div className={"row"}>
-<div className={"col col--3"}>
-<Figure caption={"Write > Submit > Feedback > Revise > Submit Again"}>
-<img  src={"https://media.istockphoto.com/id/1183393265/vector/editing-and-paper-revision-grammar-and-spelling-marks.jpg?s=612x612&w=0&k=20&c=yDH5h_FtJNQ2-vz1yCbUJZNQvsemtUg525vWV2-FO8Q="} alt={"red ink handwritten markup on a blank page."}/>
+<Figure caption={"Write > Submit > Feedback > Revise > Submit Again"} style={{float: "left", marginRight: "20px", maxWidth: "300px"}}>
+<img src={"https://media.istockphoto.com/id/1183393265/vector/editing-and-paper-revision-grammar-and-spelling-marks.jpg?s=612x612&w=0&k=20&c=yDH5h_FtJNQ2-vz1yCbUJZNQvsemtUg525vWV2-FO8Q="} alt={"red ink handwritten markup on a blank page."}/>
 </Figure>
-</div>
-<div className={"col"}><p>
-As this is a writing-intensive course, students are required to submit written assignments that go through an iterative writing cycle: a student submits an assignment, the instructor gives feedback on the assignment, student revises and resubmits work, and the instructor
-assigns a grade for the revised version. Writing assignments in this course will be grounded in the expression of technical computer science concepts and are designed to help students to develop and practice skills in writing for the computer science discipline. You will learn to write various technical documents <a href={"/docs/intro"}> (see Documentation)</a> during
-the life cycle of a software development project. The artifacts at the end of phase will be graded. <b>The
-initial grading score may be lower,</b> but please <u><b>don't panic</b></u>, feedback and comments will be provided. <b>Students are expected to
-revise their documentation and resubmit them prior to final grading.</b> The revised document will be graded
-iteratively, and a better score be given if the revision meets the expectation of instructor’s
-feedback/comments.
-</p></div>
-</div>
-</div>
+
+As this is a writing-intensive course, students are required to submit written assignments that go through an iterative writing cycle: a student submits an assignment, the instructor gives feedback on the assignment, student revises and resubmits work, and the instructor assigns a grade for the revised version. Writing assignments in this course will be grounded in the expression of technical computer science concepts and are designed to help students to develop and practice skills in writing for the computer science discipline. 
+
+You will learn to write various technical documents [see Documentation](/docs/intro) during the life cycle of a software development project. The artifacts at the end of phase will be graded. **The initial grading score may be lower,** but please **don't panic**, feedback and comments will be provided. **Students are expected to revise their documentation and resubmit them prior to final grading.** The revised document will be graded iteratively, and a better score be given if the revision meets the expectation of instructor's feedback/comments.
 
 ### Quizzes and Exams
 
@@ -554,12 +442,3 @@ According to the University Student Code of Conduct, students must not commit, a
 commit, aid, encourage, facilitate, or solicit the commission of academic dishonesty and
 impropriety including plagiarism, academic cheating, and selling lecture notes or other information
 provided by an instructor without the instructor’s authorization. Violations may result in failing the assignment and/or failing the course, and/or other sanctions as enumerated in the [University Code of Conduct (Links to an external site.)](https://studentconduct.temple.edu/policies).
-
-</div>
-<div className={"col col--4 margin--none"}>
-<TOC toc={toc} />
-
-</div>
-</div>
-
-</div>

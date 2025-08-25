@@ -273,6 +273,15 @@ const config = {
         sidebarPath: require.resolve('./sidebars.js'),
         // ... other options
       },
+    ],[
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'syllabus',
+        path: 'syllabus',
+        routeBasePath: 'syllabus',
+        sidebarPath: require.resolve('./sidebars.js'),
+        // ... other options
+      },
     ],
     [
       "docusaurus2-dotenv-2",
