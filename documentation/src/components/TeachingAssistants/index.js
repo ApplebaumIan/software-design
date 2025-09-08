@@ -5,7 +5,7 @@ export default function TeachingAssistants() {
         {
             name: "Mohammad Siahkamari",
             email: "mohammad.siahkamari@temple.edu",
-            calendlyLink: "https://calendly.com/tut46173-temple/new-meeting" // Add your actual Calendly link here
+            calendlyLink: "https://temple.zoom.us/j/93753177290" // Add your actual Calendly link here
         },
         // {
         //     name: "Thanh Nguyen",
