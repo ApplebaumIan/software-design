@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktu_cis_4398_docs_template=globalThis.webpackChunktu_cis_4398_docs_template||[]).push([[7559],{48481:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-redoc","id":"using-petstore-yaml"}')}}]);

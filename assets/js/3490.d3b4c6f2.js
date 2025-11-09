@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktu_cis_4398_docs_template=globalThis.webpackChunktu_cis_4398_docs_template||[]).push([[3490],{3490:(e,s,c)=>{c.d(s,{createInfoServices:()=>t.v});var t=c(91885);c(87960)}}]);
