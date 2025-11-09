@@ -256,6 +256,77 @@ const config = {
     }),
   plugins: [
     [
+      "docusaurus-plugin-remote-content",
+      {
+        // options here
+        name: "docs", // used by CLI, must be path safe
+        sourceBaseUrl: "https://raw.githubusercontent.com/ApplebaumIan/projects-in-computer-science/refs/heads/main/documentation/docs/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        outDir: "docs", // the base directory to output to.
+        documents: [
+          // "api-specification/Intro.md",
+
+          // "api-specification/calculator-model-generated.md",
+          // "api-specification/openapi-spec-petstore.md",
+          // "api-specification/openapi-spec.md",
+          "development-plan/Intro.md",
+
+          "development-plan/activities.md",
+          "development-plan/development-environment.md",
+          "development-plan/schedule.md",
+          "development-plan/tasks.md",
+          "development-plan/version-control.md",
+          "intro.mdx",
+          "markdown-tutorial.mdx",
+          "requirements/Intro.md",
+
+          "requirements/features-and-requirements.md",
+          "requirements/general-requirements.md",
+          "requirements/system-block-diagram.md",
+          "requirements/system-overview.md",
+          "requirements/use-case-descriptions.md",
+          "set-it-up.mdx",
+          "system-architecture/Intro.md",
+
+          "testing/Intro.md",
+
+          "testing/acceptence-testing.md",
+          "testing/integration-testing.md",
+          "testing/test-report.md",
+          "testing/unit-testing.md",
+          "why-docusaurus.mdx"
+        ]
+        , // the file names to download
+      },
+    ],
+    [
+      "docusaurus-plugin-remote-content",
+      {
+        // options here
+        name: "images-content", // used by CLI, must be path safe
+        sourceBaseUrl: "https://capstone.ianapplebaum.com/img/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        outDir: "static/img", // the base directory to output to.
+        documents: ["blastpad-example.webp"], // the file names to download
+        requestConfig: { responseType: "arraybuffer" }
+      },
+    ],
+    [
+      "docusaurus-plugin-remote-content",
+      {
+        // options here
+        name: "json", // used by CLI, must be path safe
+        sourceBaseUrl: "https://raw.githubusercontent.com/ApplebaumIan/projects-in-computer-science/refs/heads/main/documentation/docs/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        outDir: "docs", // the base directory to output to.
+        documents:[
+            // "api-specification/_category_.json",
+          "development-plan/_category_.json",
+          "requirements/_category_.json",
+          "system-architecture/_category_.json",
+          "testing/_category_.json",],
+        requestConfig: { responseType: "arraybuffer" }
+      },
+    ],
+
+    [
       '@docusaurus/plugin-content-docs',
     {
         id: 'tutorial',
