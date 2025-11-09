@@ -17,6 +17,7 @@
   "bin": "./.bin/bin.js",
   "dependencies": {
     "@docusaurus/core": "^3.6.0",
+    "@docusaurus/plugin-client-redirects": "^3.9.2",
     "@docusaurus/preset-classic": "^3.6.0",
     "@docusaurus/theme-live-codeblock": "^3.6.0",
     "@docusaurus/theme-mermaid": "^3.6.0",
@@ -39,6 +40,7 @@
     "react-medium-image-zoom": "^5.1.8",
     "redocusaurus": "^2.5.0",
     "sass": "^1.77.8",
+    "unist-util-visit": "^5.0.0",
     "utf-8-validate": "^6.0.3"
   },
   "devDependencies": {

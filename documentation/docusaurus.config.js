@@ -22,7 +22,7 @@ const is_pdf = process.env.PDF; // helper env variable to ignore parts that shou
 const course_number = 'CIS 3296';
 const semester = process.env.SEMESTER_YEAR;
 // You can change the title here. The default is the name of the repository.
-const title = ''+process.env.PROJECT_NAME.replaceAll('-',' ').split(' ').map((word) => {
+const title = ''+(process.env.PROJECT_NAME || 'software-design').replaceAll('-',' ').split(' ').map((word) => {
   return word[0].toUpperCase() + word.substring(1);
 }).join(' ');
 
@@ -36,13 +36,13 @@ const config = {
   baseUrl: '/',
   trailingSlash: false,
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/dont-panic.svg',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: process.env.ORG_NAME, // Usually your GitHub org/user name.
-  projectName: process.env.PROJECT_NAME, // Usually your repo name.
+  organizationName: process.env.ORG_NAME || 'applebaumian', // Usually your GitHub org/user name.
+  projectName: process.env.PROJECT_NAME || 'software-design', // Usually your repo name.
   customFields:{
     course_number: course_number,
     semester: semester,
@@ -72,8 +72,8 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/'+process.env.ORG_NAME+'/'+process.env.PROJECT_NAME+'/edit/main/documentation/',
-          // remarkPlugins: [require('mdx-mermaid')],
+            'https://github.com/'+(process.env.ORG_NAME || 'ianapplebaum')+'/'+(process.env.PROJECT_NAME || 'software-design')+'/edit/main/documentation/',
+          remarkPlugins: [require('./src/plugins/remark-showcase-redirect')],
 
         },
 
@@ -147,7 +147,7 @@ const config = {
             position: 'left',
             activeBaseRegex: `/design-patterns/`,
           },{
-            to: '/tutorial/Intro',
+            to: '/tutorial/intro',
             label: 'Docusaurus Tutorial',
             position: 'left',
             activeBaseRegex: `/tutorial/`,
@@ -159,7 +159,7 @@ const config = {
           // },
 
           {
-            href: 'https://github.com/'+process.env.ORG_NAME+'/'+process.env.PROJECT_NAME,
+            href: 'https://github.com/'+(process.env.ORG_NAME || 'ianapplebaum')+'/'+(process.env.PROJECT_NAME || 'software-design'),
             label: 'GitHub',
             position: 'right',
           },
@@ -185,7 +185,7 @@ const config = {
               },
               {
                 label: 'Docusaurus Tutorial',
-                to:'/tutorial/Intro',
+                to:'/tutorial/intro',
               },
               {
                 label: 'Docusaurus Guide',
@@ -333,6 +333,7 @@ const config = {
         path: 'tutorial',
         routeBasePath: 'tutorial',
         sidebarPath: require.resolve('./sidebars.js'),
+        remarkPlugins: [require('./src/plugins/remark-showcase-redirect')],
         // ... other options
       },
     ],[
@@ -342,6 +343,7 @@ const config = {
         path: 'design-patterns',
         routeBasePath: 'design-patterns',
         sidebarPath: require.resolve('./sidebars.js'),
+        remarkPlugins: [require('./src/plugins/remark-showcase-redirect')],
         // ... other options
       },
     ],[
@@ -351,6 +353,7 @@ const config = {
         path: 'syllabus',
         routeBasePath: 'syllabus',
         sidebarPath: require.resolve('./sidebars.js'),
+        remarkPlugins: [require('./src/plugins/remark-showcase-redirect')],
         // ... other options
       },
     ],
@@ -365,6 +368,17 @@ const config = {
       "docusaurus2-dotenv-2",
       {
         systemvars: true,
+      },
+    ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: 'https://capstone.ianapplebaum.com/showcase',
+            from: '/showcase',
+          },
+        ],
       },
     ],
     'plugin-image-zoom',
