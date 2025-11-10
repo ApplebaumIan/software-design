@@ -27,19 +27,28 @@ function hello() {
 
     // Simple markdown renderer for common syntax
     const renderMarkdown = (text) => {
-        return text
+        let html = text
             .replace(/^### (.*$)/gim, '<h3>$1</h3>')
             .replace(/^## (.*$)/gim, '<h2>$1</h2>')
             .replace(/^# (.*$)/gim, '<h1>$1</h1>')
             .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
             .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-            .replace(/\`(.*?)\`/gim, '<code>$1</code>')
-            .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
-            .replace(/^- (.*$)/gim, '<li>$1</li>')
-            .replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2" target="_blank">$1</a>')
-            .replace(/```[\s\S]*?```/gim, '<pre><code>$&</code></pre>')
-            .replace(/```/g, '')
+            .replace(/`([^`]+)`/gim, '<code>$1</code>')
+            .replace(/^> (.*$)/gim, '<blockquote style="color: #555; border-left: 4px solid #ccc; padding-left: 10px; margin-left: 0;">$1</blockquote>')
+            .replace(/\[([^\]]+)]\(([^)]+)\)/gim, (match, text, url) => `<a href="${url}" target="_blank">${text}</a>`)
+            .replace(/```[\s\S]*?```/gim, (match) => `<pre><code>${match.replace(/`/g, '')}</code></pre>`)
             .replace(/\n/gim, '<br/>');
+
+        // Handle list items
+        html = html.replace(/^- (.*$)/gim, '<li>$1</li>');
+
+        // Wrap consecutive <li> elements in a <ul>
+        html = html.replace(/(<li>.*<\/li>)/g, '<ul>$1</ul>');
+        html = html.replace(/<\/li><br\/><ul>/g, '</li>');
+        html = html.replace(/<\/ul><br\/><ul>/g, '');
+
+
+        return html;
     };
 
     return (
@@ -53,7 +62,7 @@ function hello() {
             overflow: 'hidden'
         }}>
             <div style={{padding: '10px', borderRight: '1px solid #ccc'}}>
-                <h4 style={{margin: '0 0 10px 0', fontSize: '14px', color: '#666'}}>
+                <h4 style={{margin: '0 0 10px 0', fontSize: '14px'}}>
                     ✏️ Edit Markdown Here:
                 </h4>
                 <textarea
@@ -68,13 +77,14 @@ function hello() {
                         fontFamily: 'monospace',
                         fontSize: '14px',
                         padding: '10px',
-                        backgroundColor: '#f8f9fa'
+                        backgroundColor: '#f8f9fa',
+                        color: '#333'
                     }}
                     placeholder="Type your markdown here..."
                 />
             </div>
             <div style={{padding: '10px', overflow: 'auto'}}>
-                <h4 style={{margin: '0 0 10px 0', fontSize: '14px', color: '#666'}}>
+                <h4 style={{margin: '0 0 10px 0', fontSize: '14px'}}>
                     👁️ Live Preview:
                 </h4>
                 <div
@@ -84,7 +94,8 @@ function hello() {
                         padding: '10px',
                         backgroundColor: '#fff',
                         border: '1px solid #eee',
-                        borderRadius: '4px'
+                        borderRadius: '4px',
+                        color: '#333'
                     }}
                     dangerouslySetInnerHTML={{
                         __html: renderMarkdown(markdown)
