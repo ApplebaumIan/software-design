@@ -2,16 +2,18 @@ import React from "react";
 
 export default function TeachingAssistants() {
     const tas = [
-        {
-            name: "Mohammad Siahkamari",
-            email: "mohammad.siahkamari@temple.edu",
-            calendlyLink: "https://temple.zoom.us/j/93753177290" // Add your actual Calendly link here
-        },
+        // {
+        //     name: "Mohammad Siahkamari",
+        //     email: "mohammad.siahkamari@temple.edu",
+        //     calendlyLink: "https://temple.zoom.us/j/93753177290" // Add your actual Calendly link here
+        // },
         // {
         //     name: "Thanh Nguyen",
         //     email: "thanh.png@temple.edu",
         //     calendlyLink: "https://calendly.com/thanh-nguyen" // Add actual Calendly link when available
         // }
+        { name: "Jaime Nguyen", email: "jaime.nguyen@temple.edu" }
+
     ];
 
     return <>
