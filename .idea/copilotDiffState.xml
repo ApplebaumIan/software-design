@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/documentation/src/theme/Footer/Layout/index.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/documentation/src/theme/Footer/Layout/index.js" />
+              <option name="originalContent" value="import React from 'react';&#10;import clsx from 'clsx';&#10;export default function FooterLayout({style, links, logo, copyright}) {&#10;  return (&#10;    &lt;footer&#10;      className={clsx('footer', {&#10;        'footer--dark': style === 'dark',&#10;      })}&gt;&#10;      &lt;div className=&quot;container container-fluid&quot;&gt;&#10;        {links}&#10;        {(logo || copyright) &amp;&amp; (&#10;          &lt;div className=&quot;footer__bottom text--center&quot;&gt;&#10;            {logo &amp;&amp; &lt;div className=&quot;margin-bottom--sm&quot;&gt;{logo}&lt;/div&gt;}&#10;            {copyright}&#10;          &lt;/div&gt;&#10;        )}&#10;      &lt;/div&gt;&#10;    &lt;/footer&gt;&#10;  );&#10;}&#10;" />
+              <option name="updatedContent" value="import React from 'react';&#10;import clsx from 'clsx';&#10;export default function FooterLayout({style, links, logo, copyright}) {&#10;  return (&#10;    &lt;footer&#10;      className={clsx('footer', {&#10;        'footer--dark': style === 'dark',&#10;      })}&gt;&#10;      &lt;div className=&quot;container container-fluid&quot;&gt;&#10;        {links}&#10;        {(logo || copyright) &amp;&amp; (&#10;          &lt;div className=&quot;footer__bottom text--center&quot;&gt;&#10;            {logo &amp;&amp; &lt;div className=&quot;margin-bottom--sm&quot;&gt;{logo}&lt;/div&gt;}&#10;            {copyright}&#10;          &lt;/div&gt;&#10;        )}&#10;      &lt;/div&gt;&#10;    &lt;/footer&gt;&#10;  );&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

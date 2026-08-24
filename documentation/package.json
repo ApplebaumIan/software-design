@@ -24,7 +24,6 @@
     "@mdx-js/react": "^3.0.0",
     "axios": "^1.2.2",
     "bufferutil": "^4.0.7",
-    "canvas": "^2.11.2",
     "clsx": "^2.0.0",
     "compass-mixins": "^0.12.12",
     "docusaurus-plugin-remote-content": "^4.0.0",
