@@ -268,13 +268,13 @@ const config = {
           // "api-specification/calculator-model-generated.md",
           // "api-specification/openapi-spec-petstore.md",
           // "api-specification/openapi-spec.md",
-          "development-plan/Intro.md",
+          // "development-plan/Intro.md",
 
-          "development-plan/activities.md",
-          "development-plan/development-environment.md",
-          "development-plan/schedule.md",
-          "development-plan/tasks.md",
-          "development-plan/version-control.md",
+          // "development-plan/activities.md",
+          // "development-plan/development-environment.md",
+          // "development-plan/schedule.md",
+          // "development-plan/tasks.md",
+          // "development-plan/version-control.md",
           "intro.mdx",
           "markdown-tutorial.mdx",
           "requirements/Intro.md",
@@ -318,7 +318,7 @@ const config = {
         outDir: "docs", // the base directory to output to.
         documents:[
             // "api-specification/_category_.json",
-          "development-plan/_category_.json",
+          // "development-plan/_category_.json",
           "requirements/_category_.json",
           "system-architecture/_category_.json",
           "testing/_category_.json",],
