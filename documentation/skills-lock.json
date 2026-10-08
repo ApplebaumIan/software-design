@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "docusaurus": {
+      "source": "rio225/docusaurus-skill",
+      "sourceType": "github",
+      "skillPath": "skills/docusaurus/SKILL.md",
+      "computedHash": "57f0a1a9fd798acaeabbbab2f279915a147edd44e39bc4267f24c3c93187450c"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Lab Steps",
+  "position": 4,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Complete the Apple Store Lab",
+    "description": "Follow the exercises in order and record evidence as you work."
+  }
+}

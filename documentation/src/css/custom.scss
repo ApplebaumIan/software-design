@@ -6,14 +6,24 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #74a7fe;
-  --ifm-color-primary-dark: #69a0fe;
-  --ifm-color-primary-darker: #659efe;
-  --ifm-color-primary-darkest: #629bfe;
-  --ifm-color-primary-light: #99befe;
-  --ifm-color-primary-lighter: #abcafe;
-  --ifm-color-primary-lightest: #e2edff;
-  --ifm-background-color: #002e7a;
+  --ifm-color-primary: #0057b8;
+  --ifm-color-primary-dark: #004fa7;
+  --ifm-color-primary-darker: #004a9d;
+  --ifm-color-primary-darkest: #003d82;
+  --ifm-color-primary-light: #0060ca;
+  --ifm-color-primary-lighter: #0065d4;
+  --ifm-color-primary-lightest: #0a79f7;
+  --ifm-background-color: #eaf4ff;
+  --ifm-background-surface-color: #f7fbff;
+  --ifm-font-color-base: #111111;
+  --ifm-heading-color: #000000;
+  --site-main-background: #eaf4ff;
+  --site-grid-color-small: rgba(0, 70, 140, 0.08);
+  --site-grid-color-large: rgba(0, 70, 140, 0.14);
+  --site-navbar-background: rgba(234, 244, 255, 0.9);
+  --site-navbar-border: rgba(0, 70, 140, 0.2);
+  --site-navbar-text: #000000;
+  --site-navbar-hover: #0057b8;
 }
 /*main {*/
 /*  position: relative;*/
@@ -84,14 +94,24 @@
   --ifm-color-primary-lighter: #69a4fe;
   --ifm-color-primary-lightest: #97c0fe;
   --ifm-background-color: #002e7a;
+  --ifm-background-surface-color: #242526;
+  --ifm-font-color-base: #f5f6f7;
+  --ifm-heading-color: #f5f6f7;
+  --site-main-background: #0a2a43;
+  --site-grid-color-small: rgba(255, 255, 255, 0.1);
+  --site-grid-color-large: rgba(255, 255, 255, 0.2);
+  --site-navbar-background: rgba(28, 28, 30, 0.75);
+  --site-navbar-border: rgba(255, 255, 255, 0.1);
+  --site-navbar-text: #ffffff;
+  --site-navbar-hover: #0a84ff;
 }
 main {
-  background-color: #0A2A43; /* Blueprint background color */
+  background-color: var(--site-main-background);
   background-image:
-          linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px),
-          linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0.5px, transparent 0.5px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0.5px, transparent 0.5px);
+          linear-gradient(0deg, var(--site-grid-color-small) 0.5px, transparent 0.5px),
+          linear-gradient(90deg, var(--site-grid-color-small) 0.5px, transparent 0.5px),
+          linear-gradient(0deg, var(--site-grid-color-large) 0.5px, transparent 0.5px),
+          linear-gradient(90deg, var(--site-grid-color-large) 0.5px, transparent 0.5px);
   background-size: 10px 10px, 10px 10px, 50px 50px, 50px 50px;
   background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
   min-height: 100%; /* Ensure the section covers at least the full height of the viewport */
@@ -104,10 +124,10 @@ body {
 }
 
 .navbar, .navbar--fixed-top {
-  background-color: rgba(28, 28, 30, 0.75); /* Dark semi-transparent background */
+  background-color: var(--site-navbar-background);
   backdrop-filter: blur(10px); /* Blur effect */
   -webkit-backdrop-filter: blur(10px); /* Safari support */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for better visibility */
+  border-bottom: 1px solid var(--site-navbar-border);
 }
 
 .navbar__inner, .navbar__items, .navbar__brand, .navbar__link {
@@ -115,11 +135,11 @@ body {
 }
 
 .navbar__inner a {
-  color: #FFFFFF; /* White text color for dark mode */
+  color: var(--site-navbar-text);
 }
 
 .navbar__inner a:hover {
-  color: #0A84FF; /* iOS-like blue color for hover state in dark mode */
+  color: var(--site-navbar-hover);
 }
 
 
@@ -184,6 +204,11 @@ backdrop-filter: opacity(50%);
 }
 
 .clickable {
+  color: var(--ifm-font-color-base);
+  fill: var(--ifm-font-color-base);
+}
+
+[data-theme='dark'] .clickable {
   color: white;
   fill: white;
 }
@@ -201,6 +226,8 @@ $nanoVelocity: 10s;
 .hero--primary {
   position: relative;
   height: 100%;
+  --ifm-hero-text-color: #000000;
+  color: #000000;
   background: linear-gradient($computationalFogTop 25%, $nodeStreak 50%, $nodeStreak 50%, $computationalFogBot 100%);
 }
 

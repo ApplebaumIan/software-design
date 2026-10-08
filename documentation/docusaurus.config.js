@@ -124,8 +124,8 @@ const config = {
         },
       },
       colorMode: {
-        defaultMode: 'dark',
-        disableSwitch: true,
+        defaultMode: 'light',
+        disableSwitch: false,
         respectPrefersColorScheme: false,
       },
       navbar: {
@@ -147,10 +147,15 @@ const config = {
             position: 'left',
             activeBaseRegex: `/design-patterns/`,
           },{
-            to: '/tutorial/intro',
-            label: 'Docusaurus Tutorial',
+            type: 'dropdown',
+            label: 'Lab Assignments',
             position: 'left',
-            activeBaseRegex: `/tutorial/`,
+            items: [
+              {
+                label: "Applebaum's Apple Store",
+                to: '/labs/apple-store-lab/getting-started',
+              },
+            ],
           },
           // {
           //   to: '/slides',
@@ -327,6 +332,15 @@ const config = {
     ],
 
     [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'labs',
+        path: 'labs',
+        routeBasePath: 'labs',
+        sidebarPath: require.resolve('./labsSidebars.js'),
+        remarkPlugins: [require('./src/plugins/remark-showcase-redirect')],
+      },
+    ],[
       '@docusaurus/plugin-content-docs',
     {
         id: 'tutorial',
