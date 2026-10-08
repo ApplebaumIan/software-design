@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktu_cis_4398_docs_template=globalThis.webpackChunktu_cis_4398_docs_template||[]).push([[5017],{49906:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"labs"}')}}]);
