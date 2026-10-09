@@ -1,64 +1,62 @@
 ---
-title: "3. Trace a Request Through Laravel"
-description: "Follow a captured cart request from its route to the code that produces its response."
+title: "3. Reproduce the Guest Cart Bug"
+description: "Reproduce the disappearing guest cart, isolate its conditions, and write an evidence-based bug report."
 sidebar_position: 3
 ---
 
-# Trace a Request Through Laravel
+# Reproduce the Guest Cart Bug
 
-You will use the request captured in the previous step to navigate the codebase. Do not read every file.
+The reported defect is that a guest's basket can appear to lose items. Your task is to turn that vague report into a reproducible description of current and expected behavior.
 
-## 1. Find the route
+## 1. State the requirement
 
-Start in `routes/web.php` and find the route matching the cart request's method and path. The cart and checkout JSON routes live here because they use browser sessions and CSRF protection.
+Before experimenting, write the expected behavior as acceptance criteria. Address what should happen when a guest adds an item, moves between pages, refreshes, and sends later requests during the same browsing session.
 
-Product and order reads are in `routes/api.php`. An `/api` URL prefix does not make an endpoint stateless.
+Define what "the same guest" and "the same browsing session" mean from the user's perspective. Keep this definition independent of a proposed technical solution.
 
-Record the route's middleware and controller action.
+## 2. Establish a control
 
-## 2. Follow the request
-
-Trace the code in this order:
-
-```text
-Browser -> Route -> Middleware -> Controller -> Service or Model -> Response
-```
-
-For the Honeycrisp cart action, identify:
-
-1. The controller method receiving the request.
-2. Where input is validated.
-3. The service that changes the cart.
-4. Where the cart is stored.
-5. The code that creates the JSON response.
-
-Use `make logs` in a second terminal to connect the request to its runtime log entry:
+Run the store with one application instance:
 
 ```bash
-make logs
+make single
 ```
 
-## 3. Locate the presentation code
+In a new private browser window, add a distinctive quantity to the basket. Navigate and refresh several times. Record whether the quantity remains stable.
 
-Open these files:
+## 3. Reproduce the defect
 
-- `resources/views/store.blade.php`: the server-rendered HTML shell and React mount point.
-- `resources/js/app.jsx`: the React storefront and its JSON requests.
+Switch to the scaled environment:
 
-Identify the code that sends the cart request and updates the basket from the response.
-
-## 4. Trace checkout
-
-Fill in concrete class and method names for this path:
-
-```text
-Browser -> Route -> Controller -> Checkout service -> Database and services -> Response
+```bash
+make scaled
+make demo-load-balancing
+make demo-session
 ```
 
-Record which work must finish before Laravel returns `201 Created`.
+Repeat the same browser actions. Record each request's time, path, status, instance marker, and visible basket quantity. Repeat enough times to show both the expected and defective outcomes.
+
+Do not explain the root cause yet. First establish exactly which conditions make the symptom appear or disappear.
+
+## 4. Write the bug report
+
+Create a GitHub issue containing:
+
+- A concise title describing the user-visible failure.
+- Environment and topology.
+- Preconditions.
+- Minimal numbered reproduction steps.
+- Expected result.
+- Actual result.
+- Reproduction frequency.
+- HTTP, interface, and log evidence.
+- Impact on a guest and the business.
+- Questions that remain unanswered.
+
+Remove cookie values, CSRF tokens, environment values, and personal data from all evidence.
 
 ## Checkpoint
 
-Create a short request trace containing the HTTP method and path, route, middleware, controller, service or model, storage location, and response.
+A teammate who did not run your experiment should be able to follow the issue and reproduce the cart defect. Return to one instance with `make single` after collecting the evidence.
 
-Next, [map where the application keeps state](./map-state.md).
+Next, [model how the current application handles the guest journey](./map-state.md).

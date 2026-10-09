@@ -1,61 +1,55 @@
 ---
-title: "2. Inspect an HTTP Request"
-description: "Capture a cart action and identify its HTTP method, data, status, and response."
+title: "2. Document Current Behavior"
+description: "Turn storefront observations into user scenarios, business rules, and testable acceptance criteria."
 sidebar_position: 2
 ---
 
-# Inspect an HTTP Request
+# Document Current Behavior
 
-You will connect one browser action to the HTTP exchange that made it happen.
+Requirements gathering separates what users need from assumptions about the implementation. Use your exploration evidence to describe the store from a guest's perspective.
 
-![Honeycrisp product page with quantity controls and the HTTP teaching panel](/img/apple-store-honeycrisp.png)
+## 1. Identify user goals
 
-*The product page and teaching panel provide visible starting points for tracing a request.*
+Write a short user scenario for each major goal you observed:
 
-## 1. Capture a cart request
+- Find an apple to purchase.
+- Maintain a basket.
+- Complete a guest checkout.
+- Review an order and invoice.
 
-1. Open your browser's developer tools.
-2. Select **Network** and clear the request list.
-3. Add three Honeycrisp apples to your basket.
-4. Select the request to `/api/cart`.
+For each scenario, record the actor, starting condition, trigger, successful outcome, and alternate or failure outcomes.
 
-Record these details:
+## 2. Write behavior statements
 
-| Evidence | What to capture |
-| --- | --- |
-| Request | Method, URL, JSON body, `Content-Type`, and `X-CSRF-TOKEN` |
-| Browser state | Cookie names, but not cookie values |
-| Response | Status, `Content-Type`, relevant headers, and JSON body |
-| Timing | Total request duration |
-| Interface | How the basket changed after the response |
+Document the current behavior using this structure:
 
-Explain why the basket could update without reloading the document.
-
-## 2. Compare HTML and JSON
-
-Run:
-
-```bash
-curl -i http://localhost:8000/apples
-curl -i http://localhost:8000/api/apples
-make demo-http
+```text
+Given [starting state]
+When [user action]
+Then [observable result]
 ```
 
-Compare the response status and `Content-Type` for the HTML storefront and product JSON. The demo also shows the cart's state-changing request.
+Include successful behavior and edge cases. At minimum, cover adding an item, changing quantity, removing an item, refreshing the page, opening another private browser context, submitting invalid checkout data, and completing checkout.
 
-## 3. Inspect checkout
+Do not write implementation details such as class names, database tables, or framework mechanisms in these statements.
 
-Clear the Network list, then complete checkout with the placeholder details. Record:
+## 3. Separate observations from requirements
 
-- The checkout method and path.
-- The response status and `Location` header.
-- The order links in the JSON response.
-- The next request made by React.
+Create two lists:
 
-Checkout returns `201 Created`; it does not return a redirect. React reads the response and navigates to the confirmation page. Contrast this with the document redirect from `/` to `/apples`.
+- **Observed behavior:** what the supplied application demonstrably does.
+- **Expected behavior:** what a guest reasonably needs the product to do.
+
+Mark disagreements between these lists as candidate defects or unanswered requirement questions. Do not silently convert an assumption into a requirement.
+
+## 4. Capture interface evidence
+
+Use the browser Network panel to connect important actions to system responses. For the cart and checkout, record the method, path, status, response type, visible result, and duration. Do not record cookie or token values.
+
+The HTTP evidence should help another team reproduce your observation; it should not replace the user-facing requirement.
 
 ## Checkpoint
 
-Before continuing, you should be able to identify the client, method, path, headers, body, status, and response for one storefront action.
+Before continuing, your team should have a shared requirements draft containing user scenarios, current-behavior statements, expected-behavior statements, edge cases, and open questions.
 
-Next, [trace the cart request into Laravel](./trace-laravel.md).
+Next, [reproduce and define the guest cart defect](./trace-laravel.md).

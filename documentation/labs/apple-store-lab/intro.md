@@ -1,37 +1,25 @@
 ---
-title: "Investigate Applebaum's Apple Store"
-description: "Trace a storefront action through HTTP, Laravel, storage, and a scaled deployment."
+title: "Prepare the Apple Store for the Gala Launch"
+description: "Investigate the existing storefront and prepare it for the high-traffic launch of Applebaum's Gala apple."
 sidebar_position: 1
 ---
 
-# Welcome to Applebaum's *Apple* Store
+# Prepare Applebaum's Apple Store for Launch Day
 
-## Motivation
-
-Web applications cross several boundaries: browser, network, server code, storage, and deployment. A page can appear to work while hiding problems with state, failure, or multiple server instances.
-
-In this lab, you will investigate a working Laravel apple store. You will collect evidence from the browser, application code, tests, logs, and controlled experiments instead of guessing how the system behaves.
-
-![Applebaum's Apple Store orchard showing the catalog introduction and HTTP teaching panel](/img/apple-store-catalog.png)
-
-
-## Goals
-
-By the end of the lab, you will be able to:
-
-- Connect browser activity to HTTP requests and responses.
-- Trace a request through a Laravel route, controller, service, and model.
-- Distinguish cookies, sessions, cache entries, local files, and database records.
-- Use tests, logs, and repeatable experiments as evidence.
-- Explain how scaling, latency, failure, and concurrency affect a web application.
-- Plan and track team work with GitHub Projects and Issues.
-
-## Teams
-
-Complete this lab in a group of three. During week one, everyone investigates the application together. After the analysis, your team will create a project board, divide the remaining work into issues, and assign work to one another.
-
-:::warning Use demonstration data
-The checkout form contains safe placeholder information and does not collect payment. Do not enter real customer, payment, cookie, CSRF token, or environment data in the application or your report.
+Your team has been hired to prepare Applebaum's Apple Store for its most important launch yet.
+:::note[**Introducing Gala.**]
+> Our most advanced apple yet.
+> Remarkably crisp. Impressively sweet. Beautifully red.
+> It's the apple everyone already knows, completely reimagined.
+> And we think you're going to love it.
 :::
 
-Continue to [What You'll Need](./getting-started.mdx). Record evidence first; interpret it second as you work through the lab.
+We expect millions of customers on launch day. Gala could transform our store, and the storefront must be ready to handle demand at a scale we have never experienced.
+
+We need your team to determine what the store currently does, what customers need it to do, and how it behaves under launch-day pressure. Explore the product as a customer. Write down its behavior. Test your assumptions. Then show us how requests and state move through the system today.
+
+By the end of the first week, we expect a requirements draft, an evidence-based assessment, a state map, and an as-is sequence diagram that our stakeholders and engineers can review together. In the second week, your team will test how the store behaves under launch pressures and support its conclusions with repeatable evidence.
+
+The Gala launch date is approaching. Give us a shared understanding of the system before recommending how to prepare it.
+
+![Applebaum's Apple Store orchard showing the catalog introduction and HTTP teaching panel](/img/apple-store-catalog.png)

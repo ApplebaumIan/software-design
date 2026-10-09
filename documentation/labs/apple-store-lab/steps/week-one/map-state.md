@@ -1,56 +1,54 @@
 ---
-title: "4. Map Application State"
-description: "Classify the store's browser, session, cache, file, and database state."
+title: "4. Model the Current Behavior"
+description: "Map the current state ownership and draw an as-is sequence diagram for the guest cart interaction."
 sidebar_position: 4
 ---
 
-# Map Application State
+# Model the Current Behavior
 
-You will determine who owns each value, how long it must survive, and where the application stores it.
+Create an **as-is** model of the supplied application. The model must explain your observations, including the guest cart defect, without proposing the future design.
 
-## 1. Map the data model
+## 1. Identify participants
 
-Read the files in `database/migrations` in timestamp order. For each domain table, record:
+Use runtime evidence and focused inspection of routes, configuration, and code to identify the participants involved in a guest cart request. Include:
 
-- Primary key
-- Foreign keys
-- Unique constraints
-- Important columns and timestamps
+- Guest
+- Browser and React storefront
+- Nginx
+- Laravel application instance
+- Session storage
+- PostgreSQL when relevant
 
-Compare the schema with the relationships in `app/Models`. Identify which records checkout creates or changes.
+Record evidence for each participant rather than reading every file in the repository.
 
-## 2. Classify state
+## 2. Map current state
 
-Complete this table in your notes with concrete examples from the store:
+For each important value, record its owner, required lifetime, current storage location, and whether it is browser-local, instance-local, or shared. Include the guest identity reference, basket contents, product data, order data, and invoice.
 
-| Kind of state | Owner | Required lifetime | Storage location |
-| --- | --- | --- | --- |
-| Request data | One request | Until the response | Your finding |
-| Cookie | One browser | Across matching requests | Your finding |
-| Guest cart | One visitor | Browsing session | Your finding |
-| Product and order data | Application | Across restarts | Your finding |
-| Cached data | Application or instance | Until expiration | Your finding |
-| Invoice | Order or instance | Determine from evidence | Your finding |
+A cookie and a session are not the same thing. State what the browser retains and what the server retains.
 
-A cookie and a session are not the same thing. Determine what the browser stores and what its cookie identifies on the server.
+## 3. Draw the as-is sequence diagram
 
-## 3. Compare browser contexts
+Create a Mermaid sequence diagram showing a guest adding an item and then reading the basket. Use separate participants for two Laravel instances so the defect condition is visible.
 
-1. Add an item in one private browser window.
-2. Open a second private browser window.
-3. Compare the carts and cookie names.
-4. Explain which state belongs to one visitor and which is shared by the application.
+Your diagram must show:
 
-Do not record or share cookie values.
+- The user action and React request.
+- The request passing through Nginx.
+- The application instance handling each request.
+- The session identifier crossing the boundary without exposing its value.
+- Where basket state is read and written.
+- The response that updates the interface.
+- An alternate path in which the next request reaches another instance and the basket appears empty or stale.
 
-## 4. Draw the system
+Label observed behavior as observed. If any interaction is inferred from code or configuration, label it as inferred.
 
-Create a component diagram containing:
+## 4. Validate the model
 
-```text
-Browser -> Nginx -> Laravel -> PostgreSQL
-```
+Compare the diagram with your bug report and HTTP evidence. Every important request, response, and state transition in the report should appear in the diagram. Record any contradiction as an open question instead of adjusting evidence to fit the model.
 
-Add sessions, cache, invoices, and external-service simulators. Mark each storage location as browser-local, instance-local, or shared.
+:::tip[Week 1 checkpoint]
+Your team should now have an exploration log, testable requirements, a reproducible bug report, a state map, and an as-is sequence diagram reviewed by all three team members.
+:::
 
-Your week-one analysis is now complete. Next, [plan the remaining team work](./plan-team-work.md).
+Next, [plan the remaining team work](./plan-team-work.md).

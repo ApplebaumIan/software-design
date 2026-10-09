@@ -10,21 +10,21 @@ Your report should let another programmer reproduce your observations and follow
 
 ## Required sections
 
-### 1. Baseline journey
+### 1. Requirements and baseline journey
 
-Summarize the guest workflow and include the initial `make test` result.
+Summarize the guest goals and baseline journey. Include the current-behavior statements, expected-behavior acceptance criteria, open requirement questions, and initial `make test` result.
 
 ### 2. HTTP evidence
 
 Document one cart request and checkout. Include methods, paths, request data, statuses, relevant headers, response types, and browser behavior. Remove all token and cookie values.
 
-### 3. Laravel request trace
+### 3. Guest cart bug report
 
-Name the route, middleware, controller, validation, service or model, storage location, and response for the cart action. Cite file paths and class or method names.
+Link to the bug issue and summarize its environment, minimal reproduction steps, expected result, actual result, frequency, evidence, and user impact.
 
-### 4. State and data map
+### 4. As-is behavior model
 
-Include your data table and component diagram. Explain the difference between browser, visitor, instance-local, cached, and durable shared state.
+Include your state map and as-is sequence diagram. Explain the difference between browser, visitor, instance-local, and durable shared state. Show how requests reaching different application instances produce the observed cart behavior, and distinguish observed interactions from inferred interactions.
 
 ### 5. Architecture experiments
 

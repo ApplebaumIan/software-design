@@ -1,12 +1,12 @@
 ---
 title: "5. Plan the Team Work"
-description: "Turn the week-one analysis into assigned GitHub issues on a shared project board."
+description: "Turn the week-one requirements and bug investigation into assigned GitHub issues on a shared project board."
 sidebar_position: 5
 ---
 
 # Plan the Team Work
 
-By the end of week one, your group of three should have completed the application, HTTP, Laravel, and state analysis. Use those findings to plan the remaining experiments and report work.
+By the end of week one, your group of three should have a shared requirements draft, a reproducible guest cart bug report, a state map, and a reviewed as-is sequence diagram. Use those findings to plan the remaining experiments and report work.
 
 ## 1. Create a GitHub Project
 
@@ -32,7 +32,7 @@ Add the project link to the repository README or another location the whole team
 
 ## 2. Create issues from your analysis
 
-Create GitHub issues for the remaining architecture experiments, testing analysis, diagrams, and report sections. Each issue should contain:
+Create GitHub issues for unanswered requirement questions, the remaining architecture experiments, testing analysis, diagram revisions, and report sections. Link related work to the guest cart bug issue. Each issue should contain:
 
 - A short, action-oriented title.
 - The observation or question being investigated.
@@ -73,6 +73,7 @@ At each team meeting, review what moved, what is blocked, and what should happen
 Before continuing, confirm that:
 
 - The project contains the remaining lab work.
+- The requirements, bug report, and as-is sequence diagram are linked from the project.
 - Every issue has clear completion criteria.
 - All three students have assigned work.
 - Every issue in progress has one owner.
