@@ -5,8 +5,9 @@ sidebar_position: 3
 ---
 
 # Reproduce the Guest Cart Bug
-
+:::danger[bug report]
 The reported defect is that a guest's basket can appear to lose items. Your task is to turn that vague report into a reproducible description of current and expected behavior.
+:::
 
 ## 1. State the requirement
 
