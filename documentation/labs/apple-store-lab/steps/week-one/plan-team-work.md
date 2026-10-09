@@ -14,6 +14,8 @@ One team member creates a new **Board** in [GitHub Projects](https://docs.github
 
 Use these columns:
 
+<div className="lab-kanban">
+
 ```mermaid
 kanban
   backlog[Backlog]
@@ -27,6 +29,8 @@ kanban
   done[Done]
     doneDefinition[Work that meets its acceptance criteria]
 ```
+
+</div>
 
 Add the project link to the repository README or another location the whole team can find.
 

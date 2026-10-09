@@ -305,7 +305,7 @@ td {
   //height: 651px;
 }
 @media (max-width: 600px) {
-  .docusaurus-logo-link svg {
+.docusaurus-logo-link svg {
     float: none !important;
     display: block;
     margin: 0 auto 16px auto !important;
@@ -336,3 +336,13 @@ td {
 //  min-height: 20px;
 //  min-width: 20px;
 //}
+
+.lab-kanban {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.lab-kanban .docusaurus-mermaid-container > svg {
+  min-width: 1000px;
+  max-width: none;
+}
