@@ -1,10 +1,10 @@
 ---
 title: "Investigate Applebaum's Apple Store"
 description: "Trace a storefront action through HTTP, Laravel, storage, and a scaled deployment."
-sidebar_position: 3
+sidebar_position: 1
 ---
 
-# Investigate Applebaum's Apple Store
+# Welcome to Applebaum's *Apple* Store
 
 ## Motivation
 
@@ -24,9 +24,14 @@ By the end of the lab, you will be able to:
 - Distinguish cookies, sessions, cache entries, local files, and database records.
 - Use tests, logs, and repeatable experiments as evidence.
 - Explain how scaling, latency, failure, and concurrency affect a web application.
+- Plan and track team work with GitHub Projects and Issues.
+
+## Teams
+
+Complete this lab in a group of three. During week one, everyone investigates the application together. After the analysis, your team will create a project board, divide the remaining work into issues, and assign work to one another.
 
 :::warning Use demonstration data
 The checkout form contains safe placeholder information and does not collect payment. Do not enter real customer, payment, cookie, CSRF token, or environment data in the application or your report.
 :::
 
-Continue to [Start the Apple Store](./steps/start-the-store.md), then complete the lab steps in order. Record evidence first; interpret it second.
+Continue to [What You'll Need](./getting-started.mdx). Record evidence first; interpret it second as you work through the lab.

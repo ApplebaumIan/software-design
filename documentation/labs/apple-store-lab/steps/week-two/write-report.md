@@ -1,7 +1,7 @@
 ---
-title: "7. Write the Lab Report"
+title: "8. Write the Lab Report"
 description: "Turn captured requests, code traces, and experiment results into a reproducible explanation."
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Write the Lab Report
@@ -37,6 +37,10 @@ For each experiment, separate:
 ### 6. Testing analysis
 
 Compare one unit test with one feature test. Identify one observed risk that needs a different or additional test.
+
+### 7. Agile work record
+
+Link to the GitHub Project and summarize how the team divided and reviewed the work. Reference the issues that produced each major experiment or report section. The board and closed issues should make each student's contributions visible.
 
 ## Evidence standards
 

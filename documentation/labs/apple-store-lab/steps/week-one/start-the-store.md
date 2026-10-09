@@ -27,7 +27,7 @@ Docker builds the React frontend and starts Nginx, Laravel, and PostgreSQL. You 
 
 Open [http://localhost:8000](http://localhost:8000) in a private browser window. You should see the apple catalog.
 
-If the page does not load, use the [troubleshooting guide](../troubleshooting.md) before changing application code.
+If the page does not load, use the [troubleshooting guide](../../troubleshooting.md) before changing application code.
 
 ## 3. Complete the baseline journey
 

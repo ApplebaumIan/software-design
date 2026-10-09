@@ -1,7 +1,7 @@
 ---
-title: "5. Test Architecture Pressures"
+title: "6. Test Architecture Pressures"
 description: "Use repeatable experiments to observe scaling, state, latency, failure, and concurrency."
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Test Architecture Pressures

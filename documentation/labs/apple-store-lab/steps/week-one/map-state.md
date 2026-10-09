@@ -53,4 +53,4 @@ Browser -> Nginx -> Laravel -> PostgreSQL
 
 Add sessions, cache, invoices, and external-service simulators. Mark each storage location as browser-local, instance-local, or shared.
 
-Next, [test those boundaries under architecture pressure](./test-architecture.md).
+Your week-one analysis is now complete. Next, [plan the remaining team work](./plan-team-work.md).

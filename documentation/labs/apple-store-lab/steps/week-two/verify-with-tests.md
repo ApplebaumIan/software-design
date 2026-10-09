@@ -1,7 +1,7 @@
 ---
-title: "6. Verify Behavior With Tests"
+title: "7. Verify Behavior With Tests"
 description: "Read and run focused tests that describe the store's HTTP and domain behavior."
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Verify Behavior With Tests

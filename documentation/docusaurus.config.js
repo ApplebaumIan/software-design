@@ -153,7 +153,7 @@ const config = {
             items: [
               {
                 label: "Applebaum's Apple Store",
-                to: '/labs/apple-store-lab/getting-started',
+                to: '/labs/apple-store-lab/intro',
               },
             ],
           },
