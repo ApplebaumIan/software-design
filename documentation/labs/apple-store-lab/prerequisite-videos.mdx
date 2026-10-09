@@ -29,6 +29,157 @@ Watch both short videos before starting the lab. They introduce the framework an
         style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
       />
     </div>
+      <details>
+          <summary>Video Transcript</summary>
+
+          Intro
+          0:00
+          [Music]<br/>
+          0:00
+          laravel a full stack PHP based web<br/>
+          0:03
+          framework famous for its carefully<br/>
+          0:04
+          crafted and much-loved developer<br/>
+          0:06
+          experience it was created in 2011 by<br/>
+          0:08
+          Taylor otwell who was inspired by prior<br/>
+          0:10
+          work like codeigniter or Symphony and<br/>
+          Overview<br/>
+          0:12
+          rails it has a large following of<br/>
+          0:14
+          independent developers thanks to its<br/>
+          0:16
+          laser focus on clean and minimal code<br/>
+          0:18
+          along with a huge ecosystem of tools<br/>
+          0:20
+          that can do the heavy lifting<br/>
+          0:21
+          traditionally it's used as a model view<br/>
+          0:23
+          controller framework to build<br/>
+          0:24
+          server-side web applications a model<br/>
+          0:26
+          represents data that can live in a wide<br/>
+          0:28
+          variety of databases while a view<br/>
+          0:30
+          represents what the end user sees in<br/>
+          0:31
+          HTML the user powered by blade templates<br/>
+          0:34
+          that can buy a PHP and HTML code into a<br/>
+          0:37
+          single file and finally we have a router<br/>
+          0:39
+          and controllers in the middle which<br/>
+          0:40
+          allow the user to safely interact with<br/>
+          0:42
+          the data model this pattern can be used<br/>
+          0:44
+          to build monolithic applications but<br/>
+          Code<br/>
+          0:46
+          laravel can also build Standalone apis<br/>
+          0:48
+          or integrate with popular front-end<br/>
+          0:50
+          Frameworks thanks to an adjacent Library<br/>
+          0:52
+          called inertia most importantly though<br/>
+          0:53
+          its ecosystem has out-of-the-box<br/>
+          0:55
+          solutions for features like user<br/>
+          0:57
+          authentication payments full text search<br/>
+          0:59
+          and many other others to get started<br/>
+          1:01
+          install PHP and composer then create a<br/>
+          1:03
+          new project by default it will be<br/>
+          1:05
+          configured with mySQL as the database<br/>
+          1:07
+          the application lifecycle starts in the<br/>
+          1:09
+          index PHP file when a user makes a<br/>
+          1:11
+          request it goes to the HTTP kernel which<br/>
+          1:14
+          contains middleware to intercept the<br/>
+          1:15
+          request and register service providers<br/>
+          1:17
+          like a router which itself determines<br/>
+          1:19
+          that controller action to trigger based<br/>
+          1:21
+          on the URL the user navigated to now a<br/>
+          1:24
+          controller is just a PHP class that<br/>
+          1:26
+          contains a variety of methods like show<br/>
+          1:28
+          update edit and destroy it follows a<br/>
+          1:30
+          convention where show represents a git<br/>
+          1:32
+          request for an individual entity while<br/>
+          1:35
+          store represents a post request to<br/>
+          1:37
+          create a new entity inside a method we<br/>
+          1:39
+          might use a model to make a query to the<br/>
+          1:41
+          database but instead of raw SQL code it<br/>
+          1:43
+          uses eloquent orm making the code far<br/>
+          1:46
+          more human readable every database table<br/>
+          1:48
+          has a corresponding model class which<br/>
+          1:50
+          can be customized as needed now back in<br/>
+          1:52
+          the controller the return value from a<br/>
+          1:54
+          method is a view the view is a blade<br/>
+          1:56
+          template that interpolates the data from<br/>
+          1:58
+          the database directly into HTML ml it<br/>
+          2:00
+          has the full power of PHP allowing you<br/>
+          2:02
+          to implement conditional logic and loops<br/>
+          2:04
+          with a familiar syntax but laravel comes<br/>
+          2:07
+          with a ton of other built-in features<br/>
+          2:08
+          like cues file storage websockets for<br/>
+          2:11
+          real-time apps just to name a few this<br/>
+          2:13
+          has been laravel in 100 seconds hit the<br/>
+          2:15
+          like button if you want to see more<br/>
+          2:16
+          short videos like this thanks for<br/>
+          2:18
+          watching and I will see you in the next<br/>
+          2:19
+          one<br/>
+      </details>
   </TabItem>
   <TabItem
     value="docker"
@@ -46,6 +197,83 @@ Watch both short videos before starting the lab. They introduce the framework an
         style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
       />
     </div>
+      <details>
+          <summary>Video Transcript</summary>
+
+          0:00 docker a tool that can package software<br/>
+          0:02 into containers that run reliably in any<br/>
+          0:04 environment but what is a container and<br/>
+          0:06 why do you need one let's imagine you<br/>
+          0:07 built an app with cobalt that runs on<br/>
+          0:09 some weird flavor of linux you want to<br/>
+          0:11 share this app with your friend but he<br/>
+          0:12 has an entirely different system so the<br/>
+          0:14 problem becomes how do we replicate the<br/>
+          0:15 environment our software needs on any<br/>
+          0:17 machine one way to package an app is<br/>
+          0:19 with a virtual machine where the<br/>
+          0:20 hardware is simulated then installed<br/>
+          0:22 with the required os and dependencies<br/>
+          0:24 this allows us to run multiple apps on<br/>
+          0:25 the same infrastructure however because<br/>
+          0:27 each vm<br/>
+          0:28 is running its own operating system they<br/>
+          0:30 tend to be bulky and slow<br/>
+          0:32 now a docker container is conceptually<br/>
+          0:34 very similar to a vm<br/>
+          0:35 with one key difference instead of<br/>
+          0:36 virtualizing hardware containers only<br/>
+          0:38 virtualize the os<br/>
+          0:40 or in other words all apps or containers<br/>
+          0:42 are run by a single kernel<br/>
+          0:44 and this makes almost everything faster<br/>
+          0:45 and more efficient there are three<br/>
+          0:47 fundamental elements in the universe of<br/>
+          0:49 docker<br/>
+          0:49 the docker file the image and the<br/>
+          0:51 container the docker file is like dna<br/>
+          0:54 it's just code that tells docker how to<br/>
+          0:56 build an image which itself is a<br/>
+          0:58 snapshot of your software<br/>
+          1:00 along with all of its dependencies down<br/>
+          1:01 to the operating system level the image<br/>
+          1:03 is immutable and it can be used to spin<br/>
+          1:05 up multiple containers which is your<br/>
+          1:07 actual software running in the real<br/>
+          1:08 world<br/>
+          1:09 create a docker file and use from to<br/>
+          1:11 start from an existing template like<br/>
+          1:13 ubuntu this base image gets pulled down<br/>
+          1:15 from the cloud<br/>
+          1:15 and you can also upload your own images<br/>
+          1:17 to a variety of different docker<br/>
+          1:19 registries<br/>
+          1:19 from there you might want to use run to<br/>
+          1:21 run a terminal command that installs<br/>
+          1:23 dependencies into your image<br/>
+          1:24 you can set environment variables and do<br/>
+          1:26 all kinds of other stuff then the last<br/>
+          1:27 thing you'll do is set a default command<br/>
+          1:29 that's executed when you start up a<br/>
+          1:30 container<br/>
+          1:31 and now we can create the image file by<br/>
+          1:33 running the docker build command<br/>
+          1:34 it goes through each step in our docker<br/>
+          1:36 file to build the image layer by layer<br/>
+          1:38 we can then bring this image to life as<br/>
+          1:40 a container with the docker run command<br/>
+          1:42 as your app demands more resources you<br/>
+          1:44 can run it on multiple machines multiple<br/>
+          1:46 clouds on-prem<br/>
+          1:47 or wherever you want reliably this has<br/>
+          1:49 been docker in 100 seconds<br/>
+          1:51 if you enjoyed it make sure to like and<br/>
+          1:52 subscribe and stay tuned for more docker<br/>
+          1:54 content coming to this channel soon<br/>
+          1:56 thanks for watching and i will see you<br/>
+          1:58 in the next one<br/>
+
+      </details>
   </TabItem>
 </Tabs>
 
