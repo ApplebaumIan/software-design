@@ -78,4 +78,4 @@ Before continuing, confirm that:
 - All three students have assigned work.
 - Every issue in progress has one owner.
 :::
-Next, [test the architecture pressures](../week-two/test-architecture.md).
+Week 2 instructions will be released separately.
