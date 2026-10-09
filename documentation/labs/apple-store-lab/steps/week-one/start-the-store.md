@@ -8,11 +8,19 @@ sidebar_position: 1
 
 Treat the running store as a product you have been asked to understand. During this step, observe what a guest can do without explaining how the code works.
 
-## 1. Start the application
+## 1. Accept the assignment
+
+Open the [Apple Store assignment on Classroom50](https://classroom50.org/cis3296-F26-Applebaum-Nguyen/software-design/assignments/applebaums-apple-store/accept) and accept it before cloning any code.
+
+Use the assignment repository Classroom50 creates for your team. 
+
+## 2. Start the application
+
+Copy your assignment repository's clone URL, then run:
 
 ```bash
-git clone https://github.com/ApplebaumIan/applebaums-apple-store.git
-cd applebaums-apple-store
+git clone <your-assignment-repository-url>
+cd <your-assignment-repository-directory>
 make start
 ```
 
@@ -20,7 +28,7 @@ Docker builds the React frontend and starts Nginx, Laravel, and PostgreSQL. Open
 
 If the page does not load, use the [troubleshooting guide](../../troubleshooting.md) before changing application code.
 
-## 2. Explore as a guest
+## 3. Explore as a guest
 
 Explore the site before following a fixed path. Try to discover what the product allows a guest to do. Include at least these areas:
 
@@ -33,7 +41,7 @@ Explore the site before following a fixed path. Try to discover what the product
 
 Record each action, the visible result, and any questions or surprises. Do not read the application code yet.
 
-## 3. Record a baseline journey
+## 4. Record a baseline journey
 
 Choose one complete guest journey and write it as numbered steps. For each step, capture:
 
@@ -44,7 +52,7 @@ Choose one complete guest journey and write it as numbered steps. For each step,
 
 Use screenshots only as supporting evidence; your written steps must be reproducible without them.
 
-## 4. Confirm the baseline
+## 5. Confirm the baseline
 
 ```bash
 make test
