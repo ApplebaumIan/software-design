@@ -1,0 +1,11 @@
+{
+  "label": "Week 2",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Week 2: Diagnose, Repair, and Verify",
+    "description": "Explain the guest-cart defect, defend a focused repair, and verify it across application instances."
+  }
+}
